@@ -5,7 +5,10 @@ RUBRIC
     This condition is met. Whatever the user chooses for number of max clients, 
     those many clients are accepted and served concurrently by the server. 
     If the user tries to enter too many clients at once, a message is displayed:
-    "Max clients reached. Waiting for a client to disconnect."
+    "Max clients reached. Waiting for a client to disconnect." on the server side.
+    On the client side, a message is displayed:
+    "HTTP/1.1 503 Service Unavailable" and on the next line:
+    "Server busy: Max clients reached."
     The program then waits until one or more clients have disconnected before accepting new ones.
     If the server is closed while it is running using a keyboard interrupt, a message
     is displayed: "Server shut down."
@@ -20,13 +23,14 @@ RUBRIC
     This condition is met. If the client command runs and the file exists, the response:
     "HTTP/1.1 200 OK" is displayed. In the next line, a message is displayed:
     "saved filename: existingfilename"
-    Once again, in the next line, a message is displayed:
+    In the next line, a message is displayed:
     "Response saved as: existingfilename"
     where "existingfilename" represents whatever name was given in the request header
+    In the next line, the messsage "Client successfully disconnected" is displayed.
 
     If file doesn't exist, the message: "HTTP/1.1 404 NOT FOUND" is displayed.
     In the next line, the messsage "File not found." is displayed.
-    Client doesn't end up connecting to the server in this case.
+    In the next line, the messsage "Client successfully disconnected" is displayed.
 
 4. The server handles client disconnections.
 

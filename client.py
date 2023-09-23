@@ -34,6 +34,7 @@ def main():
             print("Server busy: Max clients reached.")
         elif "404 NOT FOUND" in response:
             print("File not found.")
+            print("Client successfully disconnected")
         else:
             # Save the response with a unique filename using a timestamp
             timestamp = str(int(time.time()))
